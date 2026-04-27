@@ -13,8 +13,13 @@
     <strong>WIREFRAME</strong> — Shop / Collection page (ref: <code>pyoeunji.com/en/collections/all</code>)
   </div>
 
+  <div class="wf-explainer">
+    <strong>📖 このページは「ショップ一覧ページ」です。</strong><br>
+    商品が並ぶお店の入口。上部のタブでカテゴリ（写真集・DVD・グッズ・会員限定）を切り替え、商品が 4 列のタイル状にずらりと並びます。下部のページ送りで次のページに進めます。
+  </div>
+
   <!-- HEADER -->
-  <header class="wf-header">
+  <header class="wf-header wf-annot" data-annot="① 共通ヘッダー">
     <div class="wf-logo">FUMI</div>
     <nav class="wf-nav">
       <a href="index.html">CONTENT</a>
@@ -36,7 +41,7 @@
   </section>
 
   <!-- TOOLBAR: tabs + sort -->
-  <div class="wf-shop-toolbar">
+  <div class="wf-shop-toolbar wf-annot" data-annot="② カテゴリタブ + 並び替え">
     <div class="wf-tabs">
       <span class="active">ALL</span>
       <span>PHOTOBOOK</span>
@@ -55,7 +60,7 @@
   </div>
 
   <!-- PRODUCT GRID -->
-  <section class="wf-section" style="border-bottom:none;">
+  <section class="wf-section wf-annot" data-annot="③ 商品が4列で並ぶエリア" style="border-bottom:none;">
     <div class="wf-grid cols-4">
       <article class="wf-card"><a href="product.html"><div class="wf-img">[ img ]</div></a><div class="wf-card-body">Photobook "Lumina"<div class="wf-price">¥4,500</div></div></article>
       <article class="wf-card"><a href="product.html"><div class="wf-img">[ img ]</div></a><div class="wf-card-body">Autographed DVD <span class="wf-badge">MEMBERS</span><div class="wf-price">¥6,200</div></div></article>
@@ -69,7 +74,7 @@
   </section>
 
   <!-- PAGINATION -->
-  <div class="wf-pagination">
+  <div class="wf-pagination wf-annot" data-annot="④ 次のページへ送るボタン">
     <span>« Prev</span>
     <span style="background:#333; color:#fff; border-color:#000;">1</span>
     <span>2</span>
@@ -78,7 +83,7 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="wf-footer">
+  <footer class="wf-footer wf-annot" data-annot="⑤ 共通フッター">
     <div class="wf-foot-cols">
       <div>
         <div class="wf-logo" style="background:#444; color:#fff; border-color:#666;">FUMI</div>

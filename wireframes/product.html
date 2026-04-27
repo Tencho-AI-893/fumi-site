@@ -13,8 +13,13 @@
     <strong>WIREFRAME</strong> — Product Detail page (ref: <code>pyoeunji.com/en/products/*</code>)
   </div>
 
+  <div class="wf-explainer">
+    <strong>📖 このページは「商品詳細ページ」です。</strong><br>
+    1 つの商品をじっくり見せるページ。左に商品写真、右にタイトル・値段・「カートに入れる／今すぐ購入」ボタン。下に詳しい説明と関連商品が続きます。
+  </div>
+
   <!-- HEADER -->
-  <header class="wf-header">
+  <header class="wf-header wf-annot" data-annot="① 共通ヘッダー">
     <div class="wf-logo">FUMI</div>
     <nav class="wf-nav">
       <a href="index.html">CONTENT</a>
@@ -36,7 +41,7 @@
   </div>
 
   <!-- PRODUCT -->
-  <section class="wf-product">
+  <section class="wf-product wf-annot" data-annot="② 商品写真 + 値段 + 購入ボタン">
     <div class="wf-gallery">
       <div class="wf-img">[ Main image ]</div>
       <div class="wf-thumbs">
@@ -75,7 +80,7 @@
   </section>
 
   <!-- TABS / DETAILS -->
-  <section class="wf-tabs-section">
+  <section class="wf-tabs-section wf-annot" data-annot="③ 商品詳細・配送・注意事項">
     <div class="wf-tab-headers">
       <span class="active">DESCRIPTION</span>
       <span>SPECS</span>
@@ -88,7 +93,7 @@
   </section>
 
   <!-- RELATED -->
-  <section class="wf-section">
+  <section class="wf-section wf-annot" data-annot="④ 関連商品（おすすめ）">
     <h2>RELATED PRODUCTS</h2>
     <div class="wf-grid cols-4">
       <article class="wf-card"><a href="product.html"><div class="wf-img">[ img ]</div></a><div class="wf-card-body">Acrylic Stand<div class="wf-price">¥2,800</div></div></article>
@@ -99,7 +104,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="wf-footer">
+  <footer class="wf-footer wf-annot" data-annot="⑤ 共通フッター">
     <div class="wf-foot-cols">
       <div>
         <div class="wf-logo" style="background:#444; color:#fff; border-color:#666;">FUMI</div>

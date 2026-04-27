@@ -1,5 +1,58 @@
 /* Low-fidelity wireframe styling — no real visual design, just structure */
 
+/* ── 日本語解説オーバーレイ ── */
+.wf-annot {
+  position: relative;
+}
+.wf-annot::before {
+  content: attr(data-annot);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff5722;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  letter-spacing: 0.05em;
+}
+.wf-annot-num {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: #ff5722;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+.wf-explainer {
+  background: #fffaf2;
+  border-left: 4px solid #ff5722;
+  padding: 12px 16px;
+  margin: 0;
+  font-size: 13px;
+  color: #5a3a20;
+  line-height: 1.7;
+}
+.wf-explainer strong { color: #c0440a; }
+
+/* ── 印刷用 (PDF出力対応) ── */
+@media print {
+  .wf-banner, .wf-actions { display: none; }
+  .wf-page { border: none; box-shadow: none; }
+  body { background: #fff; }
+  .wf-section, .wf-hero, .wf-product, .wf-profile { page-break-inside: avoid; }
+  .wf-annot::before { box-shadow: none; }
+}
+
+
 * { box-sizing: border-box; }
 
 html, body {

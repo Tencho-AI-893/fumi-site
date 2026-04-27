@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ビジュアルガイド | FUMI OFFICIAL FANCLUB ワイヤーフレーム</title>
+<link rel="stylesheet" href="assets/wireframe.css" />
+<style>
+  body { background: #f5efe8; }
+  .guide-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  .guide-hero {
+    background: #fff;
+    border-radius: 8px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .guide-hero h1 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+  }
+  .guide-hero .lead {
+    color: #555;
+    line-height: 1.8;
+    margin: 0 0 16px;
+  }
+  .guide-hero .meta {
+    background: #fffaf2;
+    border-left: 4px solid #ff5722;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #5a3a20;
+    line-height: 1.7;
+  }
+  .guide-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .guide-section h2 {
+    font-size: 16px;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #ff5722;
+    color: #c0440a;
+    letter-spacing: 0.1em;
+  }
+  .guide-pages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .guide-card {
+    border: 1px solid #e5dccf;
+    border-radius: 6px;
+    padding: 16px;
+    background: #fafaf7;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: block;
+  }
+  .guide-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-decoration: none;
+  }
+  .guide-card .num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: #ff5722;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .guide-card h3 {
+    display: inline;
+    font-size: 15px;
+    margin: 0;
+  }
+  .guide-card p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+  }
+  .guide-card .role {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #999;
+  }
+  .guide-card.no-html {
+    background: #f0f0f0;
+    cursor: default;
+  }
+  .guide-flow {
+    background: #fff;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .guide-flow ol {
+    margin: 0;
+    padding-left: 24px;
+    line-height: 2;
+  }
+  .guide-flow li b { color: #c0440a; }
+  .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #555;
+  }
+  .legend span::before {
+    content: "■";
+    margin-right: 4px;
+  }
+  .legend .l-have::before { color: #ff5722; }
+  .legend .l-md::before { color: #999; }
+</style>
+</head>
+<body>
+
+<div class="guide-wrap">
+
+  <div class="guide-hero">
+    <h1>📖 FUMI OFFICIAL FANCLUB — サイト構成ガイド</h1>
+    <p class="lead">
+      このページは <b>pyoeunji.com</b>（韓国の人気モデル Pyo Eunji さんの公式ファンクラブサイト）を分析し、
+      同じような仕組みを <b>FUMI</b> 用に作るとしたら「どんなページが必要で、それぞれ何が並ぶか」をまとめたものです。
+      <br>
+      下のカードをクリックすると、各ページの下書き（ワイヤーフレーム）を見られます。
+    </p>
+    <div class="meta">
+      <b>そもそもワイヤーフレームとは？</b><br>
+      色や写真を入れる前の「設計図」です。家でいう「間取り図」にあたります。<br>
+      これで構成に納得してから、デザイナーが色や写真を入れていきます。
+    </div>
+  </div>
+
+  <!-- サイトの目的 -->
+  <div class="guide-section">
+    <h2>このサイトの目的</h2>
+    <p style="line-height: 1.8; margin: 0;">
+      FUMI のファンが集まる場所として、<b>3 つの役割</b>を持つサイトです:
+    </p>
+    <ol style="line-height: 1.9;">
+      <li><b>知ってもらう</b> — プロフィールや最新ニュースで FUMI の活動を伝える</li>
+      <li><b>買ってもらう</b> — 写真集・DVD・グッズを販売する（ネットショップ機能）</li>
+      <li><b>ファンクラブに入ってもらう</b> — 月額/年額で会員になると限定グッズや限定動画が見られる</li>
+    </ol>
+  </div>
+
+  <!-- ページ一覧 -->
+  <div class="guide-section">
+    <h2>ページ一覧（全 7 種類）</h2>
+    <div class="legend">
+      <span class="l-have">クリックで下書きが見られます</span>
+      <span class="l-md">構成のみ（ASCII 図でREADMEに記載）</span>
+    </div>
+    <div class="guide-pages" style="margin-top:16px;">
+
+      <a class="guide-card" href="index.html">
+        <span class="num">1</span><h3>TOP ページ</h3>
+        <p>サイトを訪れた最初の画面。大きな写真で第一印象を作り、ニュース・商品・「会員になる」ボタンを上から順に見せる。</p>
+        <div class="role">→ 来訪者を最初に迎える顔</div>
+      </a>
+
+      <a class="guide-card" href="profile.html">
+        <span class="num">2</span><h3>プロフィール</h3>
+        <p>FUMI の自己紹介ページ。顔写真・基本情報（誕生日・身長など）・SNSリンク・経歴・出演作品。</p>
+        <div class="role">→「FUMI ってどんな人？」に答える</div>
+      </a>
+
+      <a class="guide-card" href="shop.html">
+        <span class="num">3</span><h3>ショップ一覧</h3>
+        <p>商品が 4 列に並ぶ。カテゴリタブ（写真集/DVD/グッズ/会員限定）で絞り込み、並び替えも可能。</p>
+        <div class="role">→ 商品を探す場所</div>
+      </a>
+
+      <a class="guide-card" href="product.html">
+        <span class="num">4</span><h3>商品詳細</h3>
+        <p>1 つの商品をじっくり見せるページ。写真・値段・「カートに入れる」ボタン・詳しい説明・関連商品。</p>
+        <div class="role">→ 購入する場所</div>
+      </a>
+
+      <div class="guide-card no-html">
+        <span class="num">5</span><h3>ニュース一覧</h3>
+        <p>記事を新しい順に並べる。年やカテゴリで絞り込み、ページ送りで過去記事も読める。</p>
+        <div class="role">→ 最新情報を伝える</div>
+      </div>
+
+      <div class="guide-card no-html">
+        <span class="num">6</span><h3>FAQ（よくある質問）</h3>
+        <p>質問をクリックすると答えが下に開くアコーディオン形式。会員登録・ログイン・配送などのカテゴリ別。</p>
+        <div class="role">→ 問い合わせを減らす</div>
+      </div>
+
+      <div class="guide-card no-html" style="grid-column: span 2;">
+        <span class="num">7</span><h3>ログイン / 会員登録</h3>
+        <p>メールアドレスとパスワードを入れる画面。新規登録は別画面に分かれる。</p>
+        <div class="role">→ 会員機能の入口</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 利用者の動き -->
+  <div class="guide-flow">
+    <h2 style="font-size:16px; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 2px solid #ff5722; color: #c0440a; letter-spacing: 0.1em;">
+      ファンの動き（典型例）
+    </h2>
+    <ol>
+      <li>SNS から <b>TOPページ</b> に訪れる</li>
+      <li>大きな写真と最新ニュースを見て興味を持つ</li>
+      <li><b>プロフィール</b> で FUMI のことを知る</li>
+      <li><b>ショップ</b> で気になる商品を見つける</li>
+      <li><b>商品詳細</b> で買う or <b>会員登録</b> して限定商品を狙う</li>
+    </ol>
+  </div>
+
+  <!-- 共通の枠 -->
+  <div class="guide-section">
+    <h2>すべてのページ共通の枠</h2>
+    <p style="line-height: 1.8; margin: 0 0 12px;">
+      どのページにも、画面の<b>一番上</b>と<b>一番下</b>にこれが付きます:
+    </p>
+    <ul style="line-height: 1.9;">
+      <li><b>上（ヘッダー）</b>: ロゴ／メニュー（CONTENT・PROFILE・SHOP・NEWS）／日本語英語切替／ログイン／「会員になる」ボタン</li>
+      <li><b>下（フッター）</b>: お問い合わせ／会社情報／規約／プライバシーポリシー／特商法／FAQ／SNSアイコン／著作権表示</li>
+    </ul>
+  </div>
+
+  <!-- 印刷案内 -->
+  <div class="guide-section" style="background: #fffaf2; border-left: 4px solid #ff5722;">
+    <h2 style="border: none; padding: 0; margin-bottom: 8px;">💡 紙で渡したいときは</h2>
+    <p style="margin: 0; line-height: 1.8;">
+      このページや各下書きページを、ブラウザの「印刷」→「PDF として保存」で <b>そのまま PDF にできます</b>。<br>
+      （Windows: <code>Ctrl+P</code> / Mac: <code>⌘+P</code>）
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
