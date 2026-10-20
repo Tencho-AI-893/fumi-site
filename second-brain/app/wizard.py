@@ -12,9 +12,13 @@ MODEL = "gemma2:9b"
 
 
 def extract_page_id(text: str) -> str | None:
-    """NotionのURL（またはID）から32桁のIDを取り出す。末尾のIDを採用。"""
-    ids = re.findall(r"[0-9a-fA-F]{32}", text.replace("-", ""))
-    return ids[-1].lower() if ids else None
+    """NotionのURL（またはID）から32桁のIDを取り出す。ページ名の文字を巻き込まないよう境界を厳密に見る。"""
+    hexd = r"[0-9a-fA-F]"
+    plain = re.findall(rf"(?<!{hexd})({hexd}{{32}})(?!{hexd})", text)
+    if plain:
+        return plain[-1].lower()
+    dashed = re.findall(rf"(?<!{hexd})({hexd}{{8}}-{hexd}{{4}}-{hexd}{{4}}-{hexd}{{4}}-{hexd}{{12}})(?!{hexd})", text)
+    return dashed[-1].replace("-", "").lower() if dashed else None
 
 
 def render_env(token: str, db_id: str, existing: dict | None = None) -> str:
