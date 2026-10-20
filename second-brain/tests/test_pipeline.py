@@ -148,5 +148,20 @@ class ServerTests(Base):
         self.assertIn("第二の脳", urllib.request.urlopen(base + "/").read().decode())
 
 
+class WizardTests(unittest.TestCase):
+    def test_extract_page_id(self):
+        from app.wizard import extract_page_id
+        self.assertEqual(extract_page_id("https://www.notion.so/ws/My-Page-0123456789abcdef0123456789abcdef?pvs=4"),
+                         "0123456789abcdef0123456789abcdef")
+        self.assertEqual(extract_page_id("01234567-89ab-cdef-0123-456789abcdef"), "0123456789abcdef0123456789abcdef")
+        self.assertIsNone(extract_page_id("hello"))
+
+    def test_env_has_ollama_and_no_openai(self):
+        from app.wizard import render_env
+        e = render_env("tok", "db1")
+        self.assertIn("LLM_PROVIDER=ollama", e)
+        self.assertNotIn("OPENAI", e)
+
+
 if __name__ == "__main__":
     unittest.main()

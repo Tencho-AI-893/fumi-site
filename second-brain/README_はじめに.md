@@ -7,13 +7,11 @@
 2. ブラウザで http://127.0.0.1:8765 を開く
 3. 貼る → 保存（Ctrl+Enterでも可）
 
-## 初回セットアップ（ここから1つずつ。次の手順は、前が終わってから案内します）
-- Step 1：このPCにPythonが入っているか確認（`python --version`）
-- Step 2：Notionで鍵(Integration)を作る
-- Step 3：Notionに親ページを作って共有 → `python -m app setup <ページID>`
-- Step 4：OpenAIのAPIキーを作る（課金の設定が必要。上限額も設定）
-- Step 5：`.env.example` を `.env` にコピーして鍵を貼る → `python -m app check`
-- Step 6：入力画面で1文だけ入れて、Notionに出れば成功 🎉
+## 初回セットアップ（3アクション）
+1. このフォルダを解凍する
+2. Notionで連携(Integration)を作り、シークレットをコピー。親ページを1つ作り、連携を共有（『…』→『接続』）
+3. `セットアップ.bat` をダブルクリック → 鍵とページURLを貼る。あとは全自動
+   （AIは店内のOllama `gemma2:9b` を使うので、AI料金は0円）
 
 困ったら：画面に「⚠️失敗」が出ても原文はPC内に保存済み。「再送」ボタンか `python -m app retry`。
 

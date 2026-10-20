@@ -1,9 +1,10 @@
 import sys
 
-from . import config, db, notion, pipeline, server
+from . import config, db, notion, pipeline, server, wizard
 
 config.load_env()
 HELP = """使い方:
+  python -m app wizard           ワンアクション初期設定
   python -m app serve            入力画面を起動
   python -m app check            設定が足りているか確認（キーは表示しません）
   python -m app setup <親ページID>  Notionに「第二の脳」DBを新規作成
@@ -36,6 +37,8 @@ def main(argv):
         sys.exit(0 if check() else 1)
     elif cmd == "setup" and len(argv) > 1:
         print("作成しました。次の行を .env の NOTION_DATABASE_ID= に貼ってください:\n" + notion.create_database(argv[1], "第二の脳"))
+    elif cmd == "wizard":
+        wizard.main()
     elif cmd == "retry":
         res = pipeline.retry_all(db.connect())
         print(f"{len(res)}件を処理: 成功 {sum(r['status'] == 'saved' for r in res)} / 未完了 {sum(r['status'] != 'saved' for r in res)}")
