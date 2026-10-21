@@ -163,5 +163,31 @@ class WizardTests(unittest.TestCase):
         self.assertNotIn("OPENAI", e)
 
 
+class FindTargetTests(unittest.TestCase):
+    def run_find(self, db_results, page_results):
+        def fake(method, path, body=None):
+            return {"results": db_results if body["filter"]["value"] == "database" else page_results}
+        with mock.patch.object(notion, "request", fake):
+            return notion.find_target()
+
+    def test_prefers_existing_named_database(self):
+        d = {"object": "database", "id": "d1", "title": [{"plain_text": "第二の脳"}]}
+        self.assertEqual(self.run_find([d], [{"id": "p1", "parent": {"type": "workspace"}}]), ("database", "d1"))
+
+    def test_falls_back_to_shared_page_not_db_rows(self):
+        pages = [{"id": "row", "parent": {"type": "database_id"}}, {"id": "p1", "parent": {"type": "workspace"}}]
+        self.assertEqual(self.run_find([], pages), ("page", "p1"))
+
+    def test_nothing_shared(self):
+        self.assertIsNone(self.run_find([], []))
+
+    def test_vbs_is_hidden_and_points_to_folder(self):
+        from pathlib import Path
+        from app.wizard import vbs_content
+        v = vbs_content(Path("C:/x/second-brain"))
+        self.assertIn("python -m app serve", v)
+        self.assertTrue(v.rstrip().endswith(", 0"))  # 0 = 画面を出さない
+
+
 if __name__ == "__main__":
     unittest.main()

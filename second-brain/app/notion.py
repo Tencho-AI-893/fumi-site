@@ -89,3 +89,25 @@ def create_database(parent_page_id, title):
         "parent": {"type": "page_id", "page_id": parent_page_id},
         "title": _text(title), "properties": DB_SCHEMA})
     return r["id"]
+
+
+def _title_of(obj):
+    if obj.get("object") == "database":
+        parts = obj.get("title", [])
+    else:
+        t = next((v for v in obj.get("properties", {}).values() if v.get("type") == "title"), {})
+        parts = t.get("title", [])
+    return "".join(x.get("plain_text", "") for x in parts)
+
+
+def find_target(name="第二の脳"):
+    """連携に共有されたものから保存先を自動で探す。返り値: ("database"|"page", id)。無ければ None。
+    優先順位: 同名のデータベース → 共有された最初のページ（その中にDBを作る）。"""
+    def search(kind):
+        r = request("POST", "/search", {"filter": {"property": "object", "value": kind}, "page_size": 20})
+        return r.get("results", [])
+    for d in search("database"):
+        if _title_of(d) == name:
+            return "database", d["id"]
+    pages = [p for p in search("page") if p.get("parent", {}).get("type") != "database_id"]
+    return ("page", pages[0]["id"]) if pages else None
